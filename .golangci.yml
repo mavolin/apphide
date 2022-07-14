@@ -7,7 +7,6 @@ linters:
     - errcheck
     - errorlint
     - exportloopref
-    - forbidigo
     - gocritic
     - godot
     - gofumpt

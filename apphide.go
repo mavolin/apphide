@@ -34,10 +34,10 @@ func main() {
 	flag.Parse()
 
 	if flag.NArg() == 0 {
-		fmt.Println("Please specify a regular expression of the name of the application(s) to hide")
+		fmt.Println("Please specify a regular expression matching the name of the application(s) to hide")
 		return
 	} else if flag.NArg() > 1 {
-		fmt.Println("You can only specify one regular expression")
+		fmt.Println("You can only specify a single regular expression")
 		return
 	}
 
@@ -95,7 +95,7 @@ func main() {
 		fmt.Printf("• %s (%s)\n", app.Name, app.ID)
 	}
 
-	fmt.Println("Remove them? (Y/n)")
+	fmt.Println("\nHide them? (Y/n)")
 
 	r := bufio.NewReader(os.Stdin)
 
@@ -118,7 +118,7 @@ func main() {
 				if errors.Is(err, os.ErrNotExist) {
 					fmt.Printf("%s is not hidden, skipping\n", app.Name)
 				} else {
-					fmt.Println("Could not remove hidden application:", err)
+					fmt.Println("Could not unhide application:", err)
 				}
 
 				continue
